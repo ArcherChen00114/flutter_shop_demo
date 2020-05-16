@@ -89,10 +89,22 @@ class NavigatorUtil{
         Routers.register,
         transition:TransitionType.inFromRight);
   }
+  static goMine(BuildContext context) {
+    Application.router.navigateTo(
+        context,
+        Routers.register,
+        transition:TransitionType.inFromRight);
+  }
   static Future goCollect(BuildContext context) {
     return Application.router.navigateTo(
         context,
         Routers.mineCollect,
+        transition:TransitionType.inFromRight);
+  }
+  static goAboutUs(BuildContext context) {
+    Application.router.navigateTo(
+        context,
+        Routers.aboutUs,
         transition:TransitionType.inFromRight);
   }
 

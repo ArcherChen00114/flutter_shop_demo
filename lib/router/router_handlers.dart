@@ -6,9 +6,11 @@ import 'package:shopdemo/page/loading/loading_page.dart';
 import 'package:shopdemo/page/home/index_page.dart';
 import 'package:shopdemo/page/login/login_page.dart';
 import 'package:shopdemo/page/login/register_page.dart';
+import 'package:shopdemo/page/mine/about_us_page.dart';
 import 'package:shopdemo/page/mine/address_edit_page.dart';
 import 'package:shopdemo/page/mine/address_page.dart';
 import 'package:shopdemo/page/mine/collect_page.dart';
+import 'package:shopdemo/page/mine/mine_page.dart';
 import 'package:shopdemo/page/order/fill_in_order_page.dart';
 import 'package:shopdemo/page/order/order_detail_page.dart';
 import 'package:shopdemo/page/order/order_page.dart';
@@ -70,6 +72,9 @@ var mineOrderDetailHandler = Handler(handlerFunc: (BuildContext context,Map<Stri
 });
 var mineCollectHandler = Handler(handlerFunc: (BuildContext context,Map<String,List<String>> parameters){
   return CollectPage();
+});
+var aboutUsHandler = Handler(handlerFunc: (BuildContext context,Map<String,List<String>> parameters){
+  return aboutUsPage();
 });
 
 var loginHandler = Handler(handlerFunc: (BuildContext context,Map<String,List<String>> parameters){

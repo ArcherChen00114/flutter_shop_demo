@@ -38,7 +38,7 @@ class UserService{
     }
   }
 
-  Future loginOut(Map<String,dynamic> parameters,OnSuccess onSuccess,OnFail onFail) async{
+  Future loginOut(OnSuccess onSuccess,OnFail onFail) async{
     try{
       var response = await HttpUtil.instance.post(ServerUrl.LOGIN_OUT);
       if(response['errno'] == 0){

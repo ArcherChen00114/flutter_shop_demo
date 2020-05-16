@@ -78,7 +78,6 @@ class _CartPageState extends State<CartPage>{
           _isLogin=false;
         });
       }
-
     });
   }
 

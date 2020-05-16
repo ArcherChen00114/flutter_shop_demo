@@ -1,5 +1,7 @@
 import 'dart:developer';
+import 'dart:math';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,6 +13,7 @@ import 'package:shopdemo/page/goods/goods_detail_gallery.dart';
 import 'package:shopdemo/page/goods/goods_list_page.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:shopdemo/service/cart_service.dart';
+import 'package:shopdemo/service/collect_service.dart';
 import 'package:shopdemo/service/goods_service.dart';
 import 'package:shopdemo/utils/navigator_util.dart';
 import 'package:shopdemo/utils/shred_preferences.dart';
@@ -49,8 +52,7 @@ class _GoodsDetailPageState extends State<GoodsDetailPage>
 
   var _isCollection = false;
 
-  //Todo CartService
-  //todo CollectionService
+  CollectService _collectService=CollectService();
 
   @override
   void initState() {
@@ -449,11 +451,27 @@ class _GoodsDetailPageState extends State<GoodsDetailPage>
   }
 
   _collection() {
-    //TODO deal with collection
+    SharedPreferencesUtil.getToken().then((value){
+      if(value==null){
+        NavigatorUtil.goLogin(context);
+      }else{
+        token=value;
+        _addOrDeleteCollect();
+      }
+    });
   }
 
   _addOrDeleteCollect() {
-    //TODO DealWith Collection or cancel Collection
+    Options options=Options();
+    options.headers["X-Shop-Token"]=token;
+    var parameters={"type":0, "valueId":_goodsDetail.info.id,};
+    _collectService.addOrDeleteCollection(parameters,(onSuccess){
+      setState(() {
+        _isCollection=true;
+      });
+    }, (error){
+      ToastUtil.showToast(error);
+    });
   }
 
   List<Widget> _specificationWidget(List<String> specifications) {

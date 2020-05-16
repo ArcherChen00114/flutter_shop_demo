@@ -16,6 +16,7 @@ class Routers{
   static String mineCollect="/myCollect";
   static String mineOrderDetail="/mineOrderDetail";
   static String fillInOrder="/fillInOrder";
+  static String aboutUs="/aboutUs";
   static void configureRouters(Router router){
 
     // ignore: missing_return
@@ -34,6 +35,7 @@ class Routers{
     router.define(addressEdit, handler: addressEditHandler);
     router.define(mineCollect, handler: mineCollectHandler);
     router.define(mineOrderDetail, handler: mineOrderDetailHandler);
+    router.define(aboutUs, handler: aboutUsHandler);
     router.define(login, handler: loginHandler);
   }
 
