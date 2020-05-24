@@ -1,5 +1,5 @@
 class ServerUrl{
-  static const String BASE_URL = 'http://192.168.0.102:8080/client';//基础地址
+  static const String BASE_URL = 'http://119.45.140.181:8080/client';//基础地址
 
   static const String HOME_URL = BASE_URL+'/home/index';//首页数据
 

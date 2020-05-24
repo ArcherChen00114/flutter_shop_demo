@@ -9,7 +9,7 @@ class WebviewWidget extends StatelessWidget{
   var title;
 
   String replceLocalhost(String url){
-    return url.replaceAll("localhost", "192.168.0.102");
+    return url.replaceAll("localhost", "119.45.140.181");
   }
 
   WebviewWidget(this.url,this.title);
